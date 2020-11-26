@@ -79,9 +79,9 @@ public class AgendamentoController {
 	
 	@PostMapping("/validaagendamento")
 	public ResponseEntity<String> getHoraAgendamento(@RequestBody Agendamento objeto){
-		List<Agendamento> lista = dao.findByHoraagendamento(objeto.getHoraagendamento());
+		List<Agendamento> lista = dao.findByHoraagendamentoAndDataagendamento(objeto.getHoraagendamento(), objeto.getDataagendamento());
 		if(lista.size()>2) return ResponseEntity.status(404).build();
-		return ResponseEntity.ok("lotado");
+		return ResponseEntity.ok("livre");
 		
 	}
 	

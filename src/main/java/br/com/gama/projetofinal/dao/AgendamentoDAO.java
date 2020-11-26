@@ -23,7 +23,7 @@ public interface AgendamentoDAO extends CrudRepository<Agendamento, Integer>{
 	
 	public List<Agendamento> findByAgenciaIdAndNomecliAndDataagendamento(int id, String nomecli,Date dataagendamento);
 	
-	public List<Agendamento> findByHoraagendamento(String horaagendamento);
+	public List<Agendamento> findByHoraagendamentoAndDataagendamento(String horaagendamento, Date dataagendamento);
 	
 
 }
