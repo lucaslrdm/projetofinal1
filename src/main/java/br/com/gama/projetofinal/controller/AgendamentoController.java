@@ -104,7 +104,7 @@ public class AgendamentoController {
 	}
 
 	@GetMapping("/clientes")
-	public ResponseEntity<List<Agendamento>> getAll(){
+	public ResponseEntity<List<Agendamento>> getAllClientes(){
 		List<Agendamento> lista = (List<Agendamento>) dao.findAll();
 		if(lista.size()==0) return ResponseEntity.status(404).build();
 		return ResponseEntity.ok(lista);
