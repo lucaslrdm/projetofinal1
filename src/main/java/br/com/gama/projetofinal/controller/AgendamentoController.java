@@ -32,7 +32,7 @@ public class AgendamentoController {
 	
 	@PostMapping("/relatoriopordata")
 	public ResponseEntity<List<Agendamento>> getAgendamentoData(@RequestBody Agendamento objeto){
-		List<Agendamento> lista = dao.findByDataagendamento(objeto.getDataagendamento());
+		List<Agendamento> lista = dao.findByDataagendamentoOrderByDataagendamentoAscHoraagendamentoAsc(objeto.getDataagendamento());
 		if(lista.size()==0) return ResponseEntity.status(404).build();
 		return ResponseEntity.ok(lista);
 		
@@ -40,14 +40,14 @@ public class AgendamentoController {
 	
 	@PostMapping("/relatorioporcliente")
 	public ResponseEntity<List<Agendamento>> getAgendamentoCliente(@RequestBody Agendamento objeto){
-		List<Agendamento> lista = dao.findByNomecli(objeto.getNomecli());
+		List<Agendamento> lista = dao.findByNomecliOrderByDataagendamentoAscHoraagendamentoAsc(objeto.getNomecli());
 		if(lista.size()==0) return ResponseEntity.status(404).build();
 		return ResponseEntity.ok(lista);
 	}
 	
 	@PostMapping("/relatorioporagenciadata")
 	public ResponseEntity<List<Agendamento>> getAgendamentoAgenciaData(@RequestBody Agendamento objeto){
-		List<Agendamento> lista = dao.findByAgenciaIdAndDataagendamento(objeto.getAgencia().getId(),objeto.getDataagendamento());
+		List<Agendamento> lista = dao.findByAgenciaIdAndDataagendamentoOrderByDataagendamentoAscHoraagendamentoAsc(objeto.getAgencia().getId(),objeto.getDataagendamento());
 		if(lista.size()==0) return ResponseEntity.status(404).build();
 		return ResponseEntity.ok(lista);
 		
@@ -55,7 +55,7 @@ public class AgendamentoController {
 	
 	@PostMapping("/relatorioporagenciacliente")
 	public ResponseEntity<List<Agendamento>> getAgendamentoAgenciaCliente(@RequestBody Agendamento objeto){
-		List<Agendamento> lista = dao.findByAgenciaIdAndNomecli(objeto.getAgencia().getId(),objeto.getNomecli());
+		List<Agendamento> lista = dao.findByAgenciaIdAndNomecliOrderByDataagendamentoAscHoraagendamentoAsc(objeto.getAgencia().getId(),objeto.getNomecli());
 		if(lista.size()==0) return ResponseEntity.status(404).build();
 		return ResponseEntity.ok(lista);
 		
@@ -63,7 +63,7 @@ public class AgendamentoController {
 	
 	@PostMapping("/relatorioporclientedata")
 	public ResponseEntity<List<Agendamento>> getAgendamentoClienteData(@RequestBody Agendamento objeto){
-		List<Agendamento> lista = dao.findByNomecliAndDataagendamento(objeto.getNomecli(),objeto.getDataagendamento());
+		List<Agendamento> lista = dao.findByNomecliAndDataagendamentoOrderByDataagendamentoAscHoraagendamentoAsc(objeto.getNomecli(),objeto.getDataagendamento());
 		if(lista.size()==0) return ResponseEntity.status(404).build();
 		return ResponseEntity.ok(lista);
 		
@@ -71,7 +71,7 @@ public class AgendamentoController {
 	
 	@PostMapping("/relatorioporagenciaclientedata")
 	public ResponseEntity<List<Agendamento>> getAgendamentoAgenciaClienteData(@RequestBody Agendamento objeto){
-		List<Agendamento> lista = dao.findByAgenciaIdAndNomecliAndDataagendamento(objeto.getAgencia().getId(),objeto.getNomecli(),objeto.getDataagendamento());
+		List<Agendamento> lista = dao.findByAgenciaIdAndNomecliAndDataagendamentoOrderByDataagendamentoAscHoraagendamentoAsc(objeto.getAgencia().getId(),objeto.getNomecli(),objeto.getDataagendamento());
 		if(lista.size()==0) return ResponseEntity.status(404).build();
 		return ResponseEntity.ok(lista);
 		
