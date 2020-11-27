@@ -96,11 +96,12 @@ public class AgendamentoController {
 		}
 	}
 	
-	@GetMapping("/clientes")
+	@GetMapping("/agendamentos")
 	public ResponseEntity<List<Agendamento>> getAll(){
 		List<Agendamento> lista = (List<Agendamento>) dao.findAll();
 		if(lista.size()==0) return ResponseEntity.status(404).build();
 		return ResponseEntity.ok(lista);
 	}
+
 
 }
