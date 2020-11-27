@@ -25,7 +25,7 @@ public class AgendamentoController {
 	
 	@PostMapping("/relatorioporagencia")
 	public ResponseEntity<List<Agendamento>> getAgendamentoAgencia(@RequestBody Agendamento objeto){
-		List<Agendamento> lista = dao.findByAgenciaId(objeto.getAgencia().getId());
+		List<Agendamento> lista = dao.findByAgenciaIdOrderByAgenciaIdAsc(objeto.getAgencia().getId());
 		if(lista.size()==0) return ResponseEntity.status(404).build();
 		lista.sort();
 		return ResponseEntity.ok(lista);
