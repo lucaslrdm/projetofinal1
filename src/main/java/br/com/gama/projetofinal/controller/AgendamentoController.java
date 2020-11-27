@@ -1,7 +1,6 @@
 package br.com.gama.projetofinal.controller;
 
 import java.util.List;
-import java.util.Comparator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +26,6 @@ public class AgendamentoController {
 	public ResponseEntity<List<Agendamento>> getAgendamentoAgencia(@RequestBody Agendamento objeto){
 		List<Agendamento> lista = dao.findByAgenciaIdOrderByAgenciaIdAsc(objeto.getAgencia().getId());
 		if(lista.size()==0) return ResponseEntity.status(404).build();
-		lista.sort();
 		return ResponseEntity.ok(lista);
 		
 	}
