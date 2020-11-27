@@ -9,7 +9,7 @@ import br.com.gama.projetofinal.model.Agendamento;
 
 public interface AgendamentoDAO extends CrudRepository<Agendamento, Integer>{
 	
-	public List<Agendamento> findByAgenciaIdOrderByAgenciaIdAsc(int id);
+	public List<Agendamento> findByAgenciaIdOrderByDataagendamentoAsc(int id);
 	
 	public List<Agendamento> findByDataagendamento(Date dataagendamento);
 	
